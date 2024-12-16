@@ -1,0 +1,176 @@
+{% extends 'dhome.html' %}
+{% block hlist %}
+
+<section id="main-content">
+  <section class="wrapper"> 
+
+      <div class="row">
+          <div class="col-lg-8 p-r-0 title-margin-right">
+              <div class="page-header">
+                  <div class="page-title">
+                      <h3><i class="fa fa-angle-right"></i><b>Hospital List</b></h3>  
+                  </div>
+              </div>
+          </div>
+          <!-- /# column -->
+      
+          <div class="col-lg-4 p-l-0 title-margin-right">
+              <div class="page-header">
+                  <div class="page-title">
+                      <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                          <li class="breadcrumb-item active">Hospital Management</li>
+                          <li class="breadcrumb-item active">Hospital List</li>
+                      </ol>
+                  </div>
+              </div>
+            </div>
+      </div>
+     
+    <div class="row mb">
+      <!-- page start-->
+      <div class="content-panel">
+        <div class="adv-table">
+            <div class="row-fluid">
+              <div class="span7">
+                <div id="hidden-table-info_length" class="dataTables_length">
+                  <label>
+                    <select size="1" name="hidden-table-info_length" aria-controls="hidden-table-info">
+                      <option value="10" selected="selected">10</option>
+                      <option value="25">25</option><option value="50">50</option>
+                      <option value="100">100</option>
+                    </select> records per page</label>
+                </div>
+              </div>
+              <div class="span7">
+                <div class="dataTables_filter" id="hidden-table-info_filter">
+                  <label>Search: <input type="text" aria-controls="hidden-table-info"></label>
+                </div>
+              </div>
+            </div>
+            <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+            <thead>
+              <tr class="gradeX">
+                <th>Global ID</th>
+                <th>Hospital Name</th>
+                <th>Hospital Id</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>password</th>
+                <!-- <th>Designation</th> -->
+                <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in data2 %}
+                <tr class="gradeA"><td>{{e.8}}</td><td>{{e.1}}</td><td>{{e.2}}</td><td>{{e.3}}</td><td>{{e.4}}</td><td>{{e.5}}</td><td>{{e.6}}</td>
+                  <!-- <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                  <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button> -->
+                  <td><a href="/hacceptview?g_id={{e.8}}&name={{e.1}}&pass={{e.6}}&ph={{e.4}}&mail={{e.5}}" class="btn btn-danger btn-xs"><img src="/static/user/images/tik.gif" width="20px" height="20px"></a>
+                    <a href="/hremoveview?g_id={{e.8}}" class="btn btn-danger btn-xs"><img src="/static/user/images/cancel.png" width="20px" height="20px"></a>
+                    
+                </td></tr>
+                {% endfor %}
+              {% for e in data %}
+              <tr class="gradeA"><td>{{e.8}}</td><td>{{e.1}}</td><td>{{e.2}}</td><td>{{e.3}}</td><td>{{e.4}}</td><td>{{e.5}}</td><td>{{e.6}}</td>
+                <!-- <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button> -->
+                <td><center><a href="/hacceptview?g_id={{e.8}}&name={{e.1}}&pass={{e.6}}&ph={{e.4}}&mail={{e.5}}" class="btn btn-danger btn-xs"><img src="/static/user/images/tik.gif" width="20px" height="20px"></a></center>
+                  
+                  
+              </td></tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <!-- <div class="dataTables_info" id="hidden-table-info_info">Showing 1 to 10 of 57 entries</div> -->
+    </div>
+    <div class="span6">
+      <div class="dataTables_paginate paging_bootstrap pagination">
+        <ul>
+          <li class="prev disabled"><a href="#">← Previous</a></li>
+          <li class="active"><a href="#">1</a></li><li><a href="#">2</a></li>
+          <li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">5</a>
+          </li><li class="next"><a href="#">Next → </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+        </div>
+      </div>
+      <!-- page end-->
+    </div>
+    <!-- /row -->
+  </section>
+  <!-- /wrapper -->
+</section>
+
+
+<!--script for this Table-->
+<script type="text/javascript">
+  /* Formating function for row details */
+  function fnFormatDetails(oTable, nTr) {
+    var aData = oTable.fnGetData(nTr);
+    var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+    sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
+    sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+    sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+    sOut += '</table>';
+
+    return sOut;
+  }
+
+  $(document).ready(function() {
+    /*
+     * Insert a 'details' column to the table
+     */
+    var nCloneTh = document.createElement('th');
+    var nCloneTd = document.createElement('td');
+    nCloneTd.innerHTML = '<img src="/static/dashio/lib/advanced-datatable/images/details_open.png">';
+    nCloneTd.className = "center";
+
+    $('#hidden-table-info thead tr').each(function() {
+      this.insertBefore(nCloneTh, this.childNodes[0]);
+    });
+
+    $('#hidden-table-info tbody tr').each(function() {
+      this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+    });
+
+    /*
+     * Initialse DataTables, with no sorting on the 'details' column
+     */
+    var oTable = $('#hidden-table-info').dataTable({
+      "aoColumnDefs": [{
+        "bSortable": false,
+        "aTargets": [0]
+      }],
+      "aaSorting": [
+        [1, 'asc']
+      ]
+    });
+
+    /* Add event listener for opening and closing details
+     * Note that the indicator for showing which row is open is not controlled by DataTables,
+     * rather it is done here
+     */
+    $('#hidden-table-info tbody td img').live('click', function() {
+      var nTr = $(this).parents('tr')[0];
+      if (oTable.fnIsOpen(nTr)) {
+        /* This row is already open - close it */
+        this.src = "/static/dashio/lib/advanced-datatable/media/images/details_open.png";
+        oTable.fnClose(nTr);
+      } else {
+        /* Open this row */
+        this.src = "/static/dashio/lib/advanced-datatable/images/details_close.png";
+        oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
+      }
+    });
+  });
+</script>
+{% endblock %}

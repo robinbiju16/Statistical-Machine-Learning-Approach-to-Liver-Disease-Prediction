@@ -1,0 +1,111 @@
+{% extends 'dhome.html' %}
+{% block medi_new %}
+
+<section id="main-content">
+        <section class="wrapper"> 
+    
+            <div class="row">
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h3><i class="fa fa-angle-right"></i><b>Medicine </b></h3>  
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+            
+                <div class="col-lg-4 p-l-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Medicine</li>
+                                <li class="breadcrumb-item active">Approval Request</li>
+                            </ol>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+           
+          <div class="row mb">
+            <!-- page start-->
+            <div class="content-panel">
+              <div class="adv-table">
+                  <div class="row-fluid">
+                    <div class="span7">
+                      <div id="hidden-table-info_length" class="dataTables_length">
+                        <label>
+                          <select size="1" name="hidden-table-info_length" aria-controls="hidden-table-info">
+                            <option value="10" selected="selected">10</option>
+                            <option value="25">25</option><option value="50">50</option>
+                            <option value="100">100</option>
+                          </select> records per page</label>
+                      </div>
+                    </div>
+                    <div class="span7">
+                      <div class="dataTables_filter" id="hidden-table-info_filter">
+                        <label>Search: <input type="text" aria-controls="hidden-table-info"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                  <thead>
+                    <tr>
+                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+    
+                        <th>Sl.No</th>
+                        <th>Medicine ID</th>
+                        <th>Medicine Name</th>
+                        <th>Company Name</th>
+                        <th>Rate</th>
+                        <th>Disease</th>
+                        <th>Approve/Decline</th>
+                      <!-- <th class="hidden-phone">Platform(s)</th>
+                      <th class="hidden-phone">Engine version</th>
+                      <th class="hidden-phone">CSS grade</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="gradeX">
+                      <td>1</td>
+                      <td>Trident</td>
+                      <td>Internet Explorer 4.0</td>
+                      <td class="hidden-phone">Win 95+</td>
+                      <td class="center hidden-phone">4</td>
+                      <td class="center hidden-phone">X</td>
+                      <td>
+                        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                        <button class="btn btn-danger btn-xs"><i class="fa fa-close"></i></button>
+                        <button class="btn btn-primary btn-xs"><i class="fa fa-circle"></i></button>
+                      </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <div class="row-fluid">
+                    <div class="span6">
+                      <div class="dataTables_info" id="hidden-table-info_info">Showing 1 to 10 of 57 entries</div>
+                    </div>
+                    <div class="span6">
+                      <div class="dataTables_paginate paging_bootstrap pagination">
+                        <ul>
+                          <li class="prev disabled"><a href="#">← Previous</a></li>
+                          <li class="active"><a href="#">1</a></li><li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">5</a>
+                          </li><li class="next"><a href="#">Next → </a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+              
+                        </div>
+                      </div>
+                      <!-- page end-->
+                    </div>
+                    <!-- /row -->
+                  </section>
+                  <!-- /wrapper -->
+                </section>
+
+{% endblock %}
