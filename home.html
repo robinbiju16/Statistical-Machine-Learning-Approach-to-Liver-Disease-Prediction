@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+{% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+<div class="container">
+    <div class="card card-body" style="border: 1px solid black; box-shadow: 0 0 10px black;">
+       <br>
+        <h2>Model Accuracies:</h2>
+        <ul>
+            
+            <li>Liver Disease Model: <strong>78%</strong></li>
+           
+        </ul>
+        <br>
+        <br>
+        
+
+
+
+
+</div>
+{% endblock %}

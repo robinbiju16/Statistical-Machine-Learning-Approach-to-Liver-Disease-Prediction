@@ -1,0 +1,491 @@
+{% extends 'dr_temp.html' %}
+{% block dr_book %}
+
+<!-- FAVICON AND TOUCH ICONS  -->
+<link rel="shortcut icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/user/images/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/user/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/user/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" href="/static/user/images/apple-touch-icon.png">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"> 	
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"> 
+
+<!-- BOOTSTRAP CSS -->
+<link href="/static/user/css/bootstrap.min.css" rel="stylesheet">
+        
+<!-- FONT ICONS -->
+<link href="../../../../use.fontawesome.com/releases/v5.7.2//static/user/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">		
+<link href="/static/user/css/flaticon.css" rel="stylesheet">
+
+<!-- PLUGINS STYLESHEET -->
+<link href="/static/user/css/menu.css" rel="stylesheet">	
+<link id="effect" href="/static/user/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+<link href="/static/user/css/magnific-popup.css" rel="stylesheet">	
+<link href="/static/user/css/owl.carousel.min.css" rel="stylesheet">
+<link href="/static/user/css/owl.theme.default.min.css" rel="stylesheet">
+<link href="/static/user/css/animate.css" rel="stylesheet">
+<link href="/static/user/css/jquery.datetimepicker.min.css" rel="stylesheet">
+        
+<!-- TEMPLATE CSS -->
+<link href="/static/user/css/style.css" rel="stylesheet">
+
+<!-- RESPONSIVE CSS -->
+<link href="/static/user/css/responsive.css" rel="stylesheet"> 
+
+<!-- BREADCRUMB
+			============================================= -->
+			<div id="breadcrumb" class="division">
+                              <div class="container">
+                                    <div class="row col-lg-8">						
+                                          <div class="col">
+                                                <div class=" breadcrumb-holder">
+      
+                                                      <!-- Breadcrumb Nav -->
+                                                      <nav aria-label="breadcrumb">
+                                                              <ol class="breadcrumb">
+                                                                <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+                                                                <li class="breadcrumb-item active" aria-current="page">Bookings</li>
+                                                              </ol>
+                                                      </nav>
+      
+                                                      <!-- Title -->
+                                                      <h4 class="h4-sm steelblue-color">Bookings</h4>
+      
+                                                </div>
+                                          </div>
+                                    </div>  <!-- End row -->	
+                              </div>	<!-- End container -->		
+                        </div>	<!-- END BREADCRUMB -->	
+      
+                        
+      
+
+                        
+<!-- TABS-2
+			============================================= -->
+			<section id="tabs-2" class="wide-100 tabs-section division">
+				<div class="container">	
+				 	<div class="row">
+
+
+				 		<!-- TABS NAVIGATION -->
+				 		<div class="col-lg-2">
+							<div id="tabs-nav" class="list-group text-center clearfix">
+							    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+
+							    	<!-- TAB-1 LINK -->
+								  	<li class="nav-item icon-xs">
+								    	<a class="nav-link active" id="tab11-list" data-toggle="pill" href="#tab-11" role="tab" aria-controls="tab-11" aria-selected="true">
+                                                            <i class="fas fa-angle-double-right blue-color"></i>Today's
+                                                      </a></li>
+                                                      
+								  	
+
+								  	<!-- TAB-2 LINK -->
+									<li class="nav-item icon-xs">
+									    <a class="nav-link" id="tab12-list" data-toggle="pill" href="#tab-12" role="tab" aria-controls="tab-12" aria-selected="false">
+                                                            Upcoming  
+									    </a>
+									</li>
+
+									<!-- TAB-3 LINK -->
+									<li class="nav-item icon-xs">
+									    <a class="nav-link" id="tab13-list" data-toggle="pill" href="#tab-13" role="tab" aria-controls="tab-13" aria-selected="false">
+									     Search Patient
+									    </a>
+									</li>
+
+									<!-- TAB-4 LINK -->
+									<!-- <li class="nav-item icon-xs">
+									    <a class="nav-link" id="tab14-list" data-toggle="pill" href="#tab-14" role="tab" aria-controls="tab-14" aria-selected="false">
+									       Edit Bookings
+									    </a>
+									</li> -->
+
+								</ul>
+
+							</div>	
+						</div>	<!-- END TABS NAVIGATION -->
+
+                                   <!-- TABS CONTENT -->
+				 		<div class="col-lg-10 ">
+							<div class="tab-content" id="pills-tabContent">
+
+                                                <!-- DOCTOR TAB-->
+                                                      <div class="tab-pane fade show active" id="tab-11" role="tabpanel" aria-labelledby="tab11-list">
+                                                             <div class="row">
+                              
+                              
+                                                                   <!-- PRICING-2 HOLDER -->
+                                                                   <div class="col-lg-12">
+                                                                         <div class="txt-block pr-30">
+                                                                               
+                                                                                                                                                                                        
+                                                                               <!-- Plan Title  -->
+                                                                              <h5 class="h5-md steelblue-color">Today's Bookings</h5>
+                              
+                                                                              <div class="pricing-table mb-40">								
+                                                                                    <table class="table table-hover">
+                                                                                          <thead>
+                                                                                                <tr>
+                                                                                                      <th colspan="6"><center>{{dt}}</center></th>
+                                                                                                </tr>
+                                                                                               
+                                                                                                <tr>
+                                                                                                
+                                                                                                      <th scope="col">Token No</th>
+                                                                                                      <th scope="col">Patient ID</th>
+                                                                                                      <th scope="col">Name</th>
+                                                                                                      <th scope="col">Date</th>
+                                                                                                      <th scope="col">Prescribe</th>
+                                                                                              </tr>
+                                                                                          
+                                                                                          </thead>
+                                                                                          <tbody>
+                                                                                                {% for d in data %}
+                                                                                              <tr class="last-tr"> 
+                                                                                                    <td>{{d.10}}</td>
+                                                                                                     <td>{{d.8}}</td>
+                                                                                                     <td>{{d.7}}</td>
+                                                                                                      <td><span>{{d.6}}</span></td>
+                                                                                                      <td><a href="/dr_prescribeview?name={{d.7}}&pt_id={{d.8}}&dt={{d.6}}" target="_blank"><button class="btn btn-blue blue-hover">Prescribe</button></a></td>
+                                                                                                      
+                                                                                              </tr>
+                                                                                              {% endfor %}
+                                                                                              <form method="POST">
+                                                                                                    {% csrf_token %}
+                                                                                              <tr class="last-tr">  
+                                                                                                <!-- <th colspan="5"><center><button type="submit" name="delete_book" class="btn btn-blue red-hover submit">Cancel All Bookings</button></center></th> -->
+                                                                                              
+                                                                                          </tr>
+                                                                                    </form>
+
+                                                                                          </tbody>
+                                                                                    </table>
+                                                                              </div>
+                                                                                                                                                    
+                           
+                                                                         </div>
+                                                                   </div>	<!-- END PRICING-2 HOLDER -->
+																		
+							                  </div>	<!-- END TABS CONTENT -->
+                                                      </div>
+
+
+                                                 <!-- DOCTOR TAB-->
+                                                 <div class="tab-pane fade show" id="tab-12" role="tabpanel" aria-labelledby="tab12-list">
+                                                      <div class="row">
+                       
+                       
+                                                            <!-- PRICING-2 HOLDER -->
+                                                            <div class="col-lg-12">
+                                                                  <div class="txt-block pr-30">
+                                                                        
+                                                                                                                                                                                 
+                                                                        <!-- Plan Title  -->
+                                                                       <h5 class="h5-md steelblue-color">Upcoming - Bookings</h5>
+                       
+                                                                       <div class="pricing-table mb-40">								
+                                                                             <table class="table table-hover">
+                                                                                   <thead>
+                                                                                          <tr>
+                                                                                                <th colspan="6"><center>{{dd.6}}</center></th>
+                                                                                          </tr>
+
+                                                                                       <tr>
+                                                                                          <th scope="col">Token No</th>
+                                                                                          <th scope="col">Patient ID</th>
+                                                                                          <th scope="col">Name</th>
+                                                                                          <th scope="col">Date</th>
+                                                                                       </tr>
+                                                                                   </thead>
+                                                                                   <tbody>
+                                                                                         {% for dd in data2 %}
+                                                                                       <tr>
+                                                                                           <td>{{dd.10}}</td>
+                                                                                           <td>{{dd.8}}</td> 
+                                                                                           <td>{{dd.7}}</td>   
+                                                                                           <td>{{dd.6}}</td> 
+                                                                                       </tr>
+                                                                                          {% endfor %}
+
+                                                                                       <!-- <tr>
+                                                                                                <td colspan="2">From<input id="datetimepicker" type="datetime" name="date" class="form-control date"></td>
+                                                                                                <td>To<input id="datetimepicker" type="datetime" name="date" class="form-control date"></td>
+                                                                                                <td colspan="2"><a href="#" class="btn btn-blue red-hover">Cancel Bookings</a></td>
+                                                                                       </tr> -->
+
+                                                                                       
+                                                                                              <form method="POST">
+                                                                                                    {% csrf_token %}
+                                                                                              <tr class="last-tr">  
+                                                                                                <!-- <th colspan="5"><center><button type="submit" name="delete_book" class="btn btn-blue red-hover submit">Cancel All Bookings</button></center></th> -->
+                                                                                              
+                                                                                          </tr>
+                                                                                    </form>
+
+                                                                                   </tbody>
+                                                                             </table>
+                                                                       </div>
+                                                                                                                                             
+                    
+                                                                  </div>
+                                                            </div>	<!-- END PRICING-2 HOLDER -->
+                                                                                                     
+                                                     </div>	<!-- END TABS CONTENT -->
+                                               </div>
+
+
+                                                <!-- STAFF TAB -->
+                                                 <div class="tab-pane fade show " id="tab-13" role="tabpanel" aria-labelledby="tab13-list">
+                                                      <div class="row">
+                                                            
+                                                                  <br>
+                                                       
+                                                            <!-- PRICING-2 HOLDER -->
+                                                            <div class="col-lg-12">
+                                                                  <div class="txt-block pr-30">
+
+                                                                                                      <!-- SEARCH FIELD --> 
+                                                            <form method="POST">
+                                                                        {% csrf_token %}
+                                                <div class="col-md-6 headertopright"> 	
+                                                      <div id="search-field" class="sidebar-div ">								
+                                                            <div class="input-group mb-3">
+                                                                  <input type="text" class="form-control" id="search_id" name="value" placeholder="GID / Name / YYYY-MM-DD" aria-label="Search" aria-describedby="search-field">
+                                                                  <div class="input-group-append">
+                                                                        <button class="btn" type="submit" id="search_btn_id" name="search_btn" disabled><img src="/static/user/images/search.png"></button>
+                                                                  </div>
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                          </form>
+                                          
+                                                                  </div>
+                                                            </div>      
+                                                                         <!-- PRICING-2 HOLDER -->
+                                                            <div class="col-lg-12">
+                                                                        <div class="txt-block pr-30">
+                                                                              <br>
+                                                                              <br>
+
+                                                                                                                                                                                 
+                                                                        <!-- Plan Title  -->
+                                                                       <h5 class="h5-md steelblue-color">SEARCH</h5>
+                       
+                                                                       <div class="pricing-table mb-40">								
+                                                                              <table class="table table-hover" id="search_table" >
+                                                                                          <thead>
+                                                                                                 <!-- <tr>
+                                                                                                       <th colspan="6"><center>{{dd.6}}</center></th>
+                                                                                                 </tr> -->
+       
+                                                                                              <tr>
+                                                                                                 <th scope="col">Patient ID</th>
+                                                                                                 <th scope="col">Name</th>
+                                                                                                 
+                                                                                                 <th scope="col">Consult</th>
+                                                                                                 <!-- <th scope="col">Latest prescription Date</th> -->
+                                                                                              </tr>
+                                                                                          </thead>
+                                                                                          <tbody id="t11">
+                                                                                                <!-- {% for dd in data3 %}
+                                                                                              <tr>
+                                                                                                  <td>{{dd.10}}</td>
+                                                                                                  <td>{{dd.8}}</td> 
+                                                                                                  <td>{{dd.7}}</td>   
+                                                                                                  <td>{{dd.6}}</td> 
+                                                                                              </tr>
+                                                                                                 {% endfor %} -->
+       
+                                                                                              <!-- <tr>
+                                                                                                       <td colspan="2">From<input id="datetimepicker" type="datetime" name="date" class="form-control date"></td>
+                                                                                                       <td>To<input id="datetimepicker" type="datetime" name="date" class="form-control date"></td>
+                                                                                                       <td colspan="2"><a href="#" class="btn btn-blue red-hover">Cancel Bookings</a></td>
+                                                                                              </tr> -->
+       
+                                                                                              
+                                                                                                     <!-- <form method="POST">
+                                                                                                           {% csrf_token %}
+                                                                                                     <tr class="last-tr">  
+                                                                                                       <th colspan="5"><center><button type="submit" name="delete_book" class="btn btn-blue red-hover submit">Cancel All Bookings</button></center></th>
+                                                                                                     
+                                                                                                 </tr> -->
+                                                                                           </form>
+       
+                                                                                          </tbody>
+                                                                                    </table>
+                                                                       </div>
+                                                                                                                                             
+                    
+                                                                  </div>
+                                                            </div>	<!-- END PRICING-2 HOLDER -->
+                                                                                                     
+                                                     </div>	<!-- END TABS CONTENT -->
+                                               </div>
+                                               
+                                          
+                                          </div>
+                                     </div>
+
+                               </div>
+                        </div>   
+                                        <!-- End row -->	
+                               
+                            <!-- End container -->	
+                        
+			</section>	<!-- END TABS-2 -->
+
+<!-- EXTERNAL SCRIPTS
+		============================================= -->	
+		<script src="/static/user/js/jquery-3.3.1.min.js"></script>
+		<script src="/static/user/js/bootstrap.min.js"></script>	
+		<script src="/static/user/js/modernizr.custom.js"></script>
+		<script src="/static/user/js/jquery.easing.js"></script>
+		<script src="/static/user/js/jquery.appear.js"></script>
+		<script src="/static/user/js/jquery.stellar.min.js"></script>	
+		<script src="/static/user/js/menu.js"></script>
+		<script src="/static/user/js/sticky.js"></script>
+		<script src="/static/user/js/jquery.scrollto.js"></script>
+		<script src="/static/user/js/materialize.js"></script>	
+		<script src="/static/user/js/owl.carousel.min.js"></script>
+		<script src="/static/user/js/jquery.magnific-popup.min.js"></script>	
+		<script src="/static/user/js/imagesloaded.pkgd.min.js"></script>
+		<script src="/static/user/js/isotope.pkgd.min.js"></script>
+		<script src="/static/user/js/hero-form.js"></script>
+		<script src="/static/user/js/contact-form.js"></script>
+		<script src="/static/user/js/comment-form.js"></script>
+		<script src="/static/user/js/appointment-form.js"></script>
+		<script src="/static/user/js/jquery.datetimepicker.full.js"></script>		
+		<script src="/static/user/js/jquery.validate.min.js"></script>	
+		<script src="/static/user/js/jquery.ajaxchimp.min.js"></script>
+		<script src="/static/user/js/wow.js"></script>	
+	
+		<!-- Custom Script -->		
+		<script src="../static/user/js/custom.js"></script>
+
+		<script> 
+			new WOW().init();
+		</script>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  
+            <script src="../static/user/js/changer.js"></script>
+            <script defer src="../static/user/js/styleswitch.js"></script>
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+		<!-- [if lt IE 9]>
+			<script src="/static/user/js/html5shiv.js" type="text/javascript"></script>
+			<script src="/static/user/js/respond.min.js" type="text/javascript"></script>
+		<![endif] -->
+
+		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->	
+		<!--
+		<script>
+			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', 'UA-XXXXX-Y', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<script async src='https://www.google-analytics.com/analytics.js'></script>
+		-->
+            <!-- End Google Analytics -->
+            
+            <script>
+                  function tab_active()
+                  {
+                        document.getElementById("tab-13").activated = true;
+                  }
+            </script>
+
+
+<script>
+      $("#search_id").change(function () {
+          var c=0
+          debugger;
+          var entity=new Array();
+          var cid = $("#search_id").val();
+  
+          //var data = JSON.stringify(entity);
+                          var urls='/testtab/?value='+cid ;
+          $.ajax({
+              
+              url: urls,
+              
+              success: function(data){
+
+                   
+            alert(data);
+                  // $('select[name=hospital]').empty()
+                  // $('select[name=hospital]').append( $('<option>select</option>'));
+                  $('tbody[id=t11]').empty()
+                  $.each(data, function(index, text){        
+                                         
+                      $('tbody[id=t11]').append(
+                            $('<tr></tr>').append(
+                          
+                      $('<td></td>').html(text[1]),
+                      $('<td></td>').html(text[0]),
+                      $('<td></td>').html('<a target="_blank" href="/dr_prescribeview?name='+text[0]+'&pt_id='+text[1]+'&dt={{dt}}" >CONSULTING</a>'),
+               
+                  //     $('<td></td>').html(text[3]),
+                  //     $('<td></td>').html(text[2]),
+                            )
+                      );                       
+                  });                        
+                  }                       
+  
+              })
+          
+          })
+      
+  
+  </script>
+
+<script>
+      $("#search_btn_id").click(function () {
+          var c=0
+          debugger;
+          var entity=new Array();
+          var cid = $("#search_id").val();
+  
+          //var data = JSON.stringify(entity);
+                          var urls='/testtab/?value='+cid ;
+          $.ajax({
+              
+              url: urls,
+              
+              success: function(data){
+
+                   
+            alert(data);
+                  // $('select[name=hospital]').empty()
+                  // $('select[name=hospital]').append( $('<option>select</option>'));
+                  $('tbody[id=t11]').empty()
+                  $.each(data, function(index, text){        
+                                         
+                      $('tbody[id=t11]').append(
+                            $('<tr></tr>').append(
+                          
+                      $('<td></td>').html(text[1]),
+                      $('<td></td>').html(text[0]),
+                      $('<td></td>').html('<a target="_blank" href="/dr_prescribeview"?name='+text[0]+'&pt_id='+text[1]+'&dt={{dt}} >CONSULTING</a>'),
+                  //     $('<td></td>').html(text[3]),
+                  //     $('<td></td>').html(text[2]),
+                            )
+                      );                       
+                  });                        
+                  }                       
+  
+              })
+          
+          })
+      
+  
+  </script>
+
+		<script src="/static/user/js/changer.js"></script>
+        <script defer src="/static/user/js/styleswitch.js"></script>
+ 
+{% endblock %}

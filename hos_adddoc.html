@@ -1,0 +1,333 @@
+{% extends 'hos_temp.html' %}
+{% block adddoc %}
+
+<!-- FAVICON AND TOUCH ICONS  -->
+<link rel="shortcut icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/user/images/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/user/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/user/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" href="/static/user/images/apple-touch-icon.png">
+
+<!-- GOOGLE FONTS -->
+<link href="/static/user/css/roboto.css" rel="stylesheet"> 	
+<link href="/static/user/css/lato.css" rel="stylesheet"> 
+
+<!-- BOOTSTRAP CSS -->
+<link href="/static/user/css/bootstrap.min.css" rel="stylesheet">
+        
+<!-- FONT ICONS -->
+<link href="../../../../use.fontawesome.com/releases/v5.7.2//static/user/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">		
+<link href="/static/user/css/flaticon.css" rel="stylesheet">
+
+<!-- PLUGINS STYLESHEET -->
+<link href="/static/user/css/menu.css" rel="stylesheet">	
+<link id="effect" href="/static/user/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+<link href="/static/user/css/magnific-popup.css" rel="stylesheet">	
+<link href="/static/user/css/owl.carousel.min.css" rel="stylesheet">
+<link href="/static/user/css/owl.theme.default.min.css" rel="stylesheet">
+<link href="/static/user/css/animate.css" rel="stylesheet">
+<link href="/static/user/css/jquery.datetimepicker.min.css" rel="stylesheet">
+        
+<!-- TEMPLATE CSS -->
+<link href="/static/user/css/style.css" rel="stylesheet">
+
+<!-- RESPONSIVE CSS -->
+<link href="/static/user/css/responsive.css" rel="stylesheet"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!-- BREADCRUMB
+    ============================================= -->
+    <div id="breadcrumb" class="division">
+        <div class="container">
+            <div class="row col-lg-8">						
+                <div class="col">
+                    <div class=" breadcrumb-holder">
+
+                        <!-- Breadcrumb Nav -->
+                        <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/hos_homeview">Home</a></li>
+                                <li class="breadcrumb-item " aria-current="page">Approve</li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Doctor</li>
+                              </ol>
+                        </nav>
+
+                        <!-- Title -->
+                        <h4 class="h4-sm steelblue-color">Add Doctor</h4>
+
+                    </div>
+                </div>
+            </div>  <!-- End row -->	
+        </div>	<!-- End container -->		
+    </div>	<!-- END BREADCRUMB -->	
+
+
+
+
+    <!-- APPOINTMENT PAGE
+    ============================================= -->
+    <div id="appointment-page" class="wide-60 appointment-page-section division">
+        <div class="container">
+             <div class="row">
+
+
+                 <!-- DOCTOR DETAILS -->
+                 <div class="col-lg-8 border">
+                     <div class="txt-block pr-30">
+
+                         <!-- Title -->
+                        <h3 class="h3-md steelblue-color">New Doctor Details</h3>
+
+                        <!-- APPOINTMENT FORM -->
+                        <div id="appointment-form-holder" class="text-center"><img id="output_image" style="width:150px;height:150px;"><br><br>
+                            <form name="appointmentform00" class="row appointment-form00"  method="POST" enctype="multipart/form-data" onsubmit="return checkPassword(this);">
+
+                                {% csrf_token %}
+                                 <!-- Contact Form Input -->
+
+                                 <script type='text/javascript'>
+                                    function preview_image(event) 
+                                    {
+                                     var reader = new FileReader();
+                                     reader.onload = function()
+                                     {
+                                      var output = document.getElementById('output_image');
+                                      output.src = reader.result;
+                                     }
+                                     reader.readAsDataURL(event.target.files[0]);
+                                    }
+                                    </script>
+
+
+                                    
+                            <div id="input" class="col-lg-12 ">
+                                <input type="file" name="img_files"  placeholder="Choose files" accept="image/*" onchange="preview_image(event)" required>
+                            </div>
+                                 
+                                <div id="input-name" class="col-lg-12">
+                                        <input type="text" name="name" class="form-control name" placeholder="Enter Name*" style="text-transform: capitalize" required> 
+                                </div>
+
+                                <div id="input-email" class="col-lg-12">
+                                        <input type="text" name="email" class="form-control email" placeholder="Enter Email Id*" required> 
+                                </div>
+
+                                <div id="input-email" class="col-lg-12">
+                                        <input type="text" name="age" class="form-control email" placeholder="Age*" required> 
+                                    </div>
+
+                                <div id="input-phone" class="col-lg-12">
+                                    <input type="tel" name="phone" class="form-control phone" placeholder="Enter Phone Number*" required> 
+                                </div>
+
+                                <!-- Form Select -->
+                                <div id="input-department" class="col-md-12 input-department">
+                                    <select id="inlineFormCustomSelect1" name="department" class="custom-select department" required>
+                                        <option value="">Select Department</option> 
+                                            {% for d in data %} 
+                                          <option>{{d.0}}</option>
+                                            {% endfor %}
+                                          <option>Others</option>
+                                    </select>
+                                </div>
+
+                                <!-- <p>Prescription Time*</p>&nbsp;&nbsp;&nbsp; -->
+                                <!-- <div id="input" class="col-lg-3">
+                                    <button type="button" name="schedule" placeholder="Schedule" class="btn btn-blue" id="" data-toggle="modal" data-target="#myModal" value="ADD Schedule">Add Schedule</button>
+                                </div> -->
+                                
+                                <div id="input" class="col-lg-6">
+                                    <input type="checkbox" id="fnoon" name="fnoon" value="Forenoon" onclick="enableftk();" >Forenoon
+                                </div>
+
+                                <div id="input" class="col-lg-6">
+                                    <input type="text" name="ftoken" placeholder="Token No." class="form-control phone" id="ftk" >
+                                </div>
+
+                                <script>
+                                    function disable()
+                                    {
+                                        debugger;
+                                        document.getElementById("ftk").disabled = true;
+                                        document.getElementById("atk").disabled = true;
+                                    }
+                                    function enableftk()
+                                    {
+                                        if(document.getElementById("fnoon").checked)
+                                        {
+                                            document.getElementById("ftk").disabled = false;
+                                            document.getElementById("ftk").required = true;
+
+                                          
+
+                                        }
+                                        else{
+                                            document.getElementById("ftk").value = "";
+                                            document.getElementById("ftk").disabled = true;
+                                            
+                                        }
+
+                                       // document.getElementById("ftk").disabled = false;
+                                    }
+                                    function enableatk()
+                                    {
+                                        if(document.getElementById("anoon").checked)
+                                        {
+                                            document.getElementById("atk").disabled = false;
+                                            document.getElementById("atk").required = true;
+                                          
+
+                                        }
+                                        else{
+                                            document.getElementById("atk").value = "";
+                                            document.getElementById("atk").disabled = true;
+                                        }
+                                    } 
+                                </script>
+                                
+
+
+                                	<!-- Modal -->
+																	
+
+                                <div id="input" class="col-lg-6">
+                                    <input type="checkbox" name="anoon" id="anoon"  placeholder="" value="Afternoon" onload="disable();" onclick="enableatk();"> Afternoon
+                                </div>
+
+                                <div id="input" class="col-lg-6">
+                                    <input type="text" name="atoken" placeholder="Token No." class="form-control phone" id="atk">
+                                </div>
+
+                                <div id="input-phone" class="col-lg-12">
+                                        <input type="text" name="qualification" class="form-control phone" placeholder="Enter Qualification*" style="text-transform: capitalize" required> 
+                                </div>		
+                                
+                                <div id="input-phone" class="col-lg-12">
+                                        <input type="text" name="specialization" class="form-control phone" placeholder="Enter Specialization*" required> 
+                                </div>
+
+                                <div id="input-date" class="col-lg-12">
+                                        <input type="date" name="date" class="form-control date" title="Appointment Date" placeholder="Appointment Date" required> 
+                                </div>
+
+                                <div id="input-email" class="col-lg-12">
+                                        <input type="text" name="salary" class="form-control" placeholder="Salary*" required> 
+                                </div>  
+                                        
+                                <div id="input" class="col-lg-12 input-message">
+                                    <input type="file" name="files" rows="6" placeholder="Choose files" multiple>
+                                </div> <br><br>
+
+                                <div id="input" class="col-lg-12">
+                                    <input type="password" name="password" id="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one NUMBER* and one UPPERCASE* and LOWERCASE letter*, and at least 8 or more characters" placeholder="Password" maxlength="20" required="" size="25">
+                                    <div class="clear"></div>
+                                </div>
+                                <label style="color: red;" id="l1"></label>
+                                <label style="color: rgb(8, 131, 8);" id="l2"></label>
+                                <div id="input" class="col-lg-12">
+                                <input type="password" name="cnf_password" id="cnf_password" class="form-control" placeholder="Confirm Password" maxlength="20" required="" size="25" oninput="msg()" >
+                                    <div class="clear"></div>
+                                </div>
+                                                            
+                                <!-- Contact Form Button -->
+                                <div class="col-lg-12 form-btn">  
+                                    <button type="submit" name= "submit" class="btn btn-blue blue-hover submit">Add New Doctor</button> 
+                                </div>                   
+                            </form> 
+
+                        </div>	<!-- END APPOINTMENT FORM -->
+
+                        <!-- Text -->
+                        <p class="p-sm grey-color mb-30">* Add mandatory details carefully. Fill all details. 
+                        </p>
+                        
+                         
+                     </div>
+                 </div>	<!-- END DOCTOR DETAILS -->
+        </div>
+        </div>
+        </div>
+    
+
+<!-- EXTERNAL SCRIPTS
+============================================= -->	
+<script src="/static/user/js/jquery-3.3.1.min.js"></script>
+<script src="/static/user/js/bootstrap.min.js"></script>	
+<script src="/static/user/js/modernizr.custom.js"></script>
+<script src="/static/user/js/jquery.easing.js"></script>
+<script src="/static/user/js/jquery.appear.js"></script>
+<script src="/static/user/js/jquery.stellar.min.js"></script>	
+<script src="/static/user/js/menu.js"></script>
+<script src="/static/user/js/sticky.js"></script>
+<script src="/static/user/js/jquery.scrollto.js"></script>
+<script src="/static/user/js/materialize.js"></script>	
+<script src="/static/user/js/owl.carousel.min.js"></script>
+<script src="/static/user/js/jquery.magnific-popup.min.js"></script>	
+<script src="/static/user/js/imagesloaded.pkgd.min.js"></script>
+<script src="/static/user/js/isotope.pkgd.min.js"></script>
+<script src="/static/user/js/hero-form.js"></script>
+<script src="/static/user/js/contact-form.js"></script>
+<script src="/static/user/js/comment-form.js"></script>
+<script src="/static/user/js/appointment-form.js"></script>
+<script src="/static/user/js/jquery.datetimepicker.full.js"></script>			
+<script src="/static/user/js/jquery.validate.min.js"></script>	
+<script src="/static/user/js/jquery.ajaxchimp.min.js"></script>
+<script src="/static/user/js/wow.js"></script>	
+
+<!-- Custom Script -->		
+<script src="/static/user/js/custom.js"></script>
+
+<script> 
+    new WOW().init();
+</script>
+
+<script src="/static/user/js/changer.js"></script>
+<script defer src="/static/user/js/styleswitch.js"></script>	
+
+<script>
+    function checkPassword(form) {
+       debugger;
+       pass1 = form.password.value;
+       pass2 = form.cnf_password.value;
+
+       if(pass1 == pass2){
+         
+          alert("Registration Successfull.\nDoctor Registration ID :{{dr_id}}");
+       }
+     
+    }
+ </script>
+
+ <script>
+    function msg()
+    {
+       debugger;
+       var a = document.getElementById("password").value;
+       var b = document.getElementById("cnf_password").value;
+       if(a!=b)
+       {
+          document.getElementById("l2").innerHTML = "";
+
+          document.getElementById("l1").innerHTML = "Password doesn't Match.";
+          // alert("error");
+       }
+       else
+       {
+          document.getElementById("l1").innerHTML = "";
+
+          document.getElementById("l2").innerHTML = "Password Matches.";
+          // alert("error");
+       }
+    }
+ </script>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends 'dr_temp.html' %}
+{% block addmedicine %}
+
+					
+		<!-- FAVICON AND TOUCH ICONS  -->
+		<link rel="shortcut icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="152x152" href="/static/user/images/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/static/user/images/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/static/user/images/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" href="/static/user/images/apple-touch-icon.png">
+
+		<!-- GOOGLE FONTS -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"> 	
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"> 
+
+		<!-- BOOTSTRAP CSS -->
+		<link href="/static/user/css/bootstrap.min.css" rel="stylesheet">
+				
+		<!-- FONT ICONS -->
+		<link href="../../../../use.fontawesome.com/releases/v5.7.2//static/user/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">		
+		<link href="/static/user/css/flaticon.css" rel="stylesheet">
+
+		<!-- PLUGINS STYLESHEET -->
+		<link href="/static/user/css/menu.css" rel="stylesheet">	
+		<link id="effect" href="/static/user/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+		<link href="/static/user/css/magnific-popup.css" rel="stylesheet">	
+		<link href="/static/user/css/owl.carousel.min.css" rel="stylesheet">
+		<link href="/static/user/css/owl.theme.default.min.css" rel="stylesheet">
+		<link href="/static/user/css/animate.css" rel="stylesheet">
+		<link href="/static/user/css/jquery.datetimepicker.min.css" rel="stylesheet">
+				
+		<!-- TEMPLATE CSS -->
+		<link href="/static/user/css/style.css" rel="stylesheet">
+		
+		<!-- RESPONSIVE CSS -->
+		<link href="/static/user/css/responsive.css" rel="stylesheet"> 
+
+<!-- BREADCRUMB
+			============================================= -->
+			<div id="breadcrumb" class="division">
+				<div class="container">
+					  <div class="row col-lg-8">						
+							<div class="col">
+								  <div class=" breadcrumb-holder">
+
+										<!-- Breadcrumb Nav -->
+										<nav aria-label="breadcrumb">
+												<ol class="breadcrumb">
+												  <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+												  <li class="breadcrumb-item active" aria-current="page">Suggestions</li>
+												</ol>
+										</nav>
+
+										<!-- Title -->
+										<h4 class="h4-sm steelblue-color">Suggestions</h4>
+
+								  </div>
+							</div>
+					  </div>  <!-- End row -->	
+				</div>	<!-- End container -->		
+		  </div>	<!-- END BREADCRUMB -->	
+
+
+
+
+			<!-- CONTACTS-1
+			============================================= -->
+			<section id="contacts-1" class="wide-60 contacts-section division">				
+				<div class="container">
+
+
+					<!-- SECTION TITLE -->	
+					<div class="row">	
+						<div class="col-lg-10 offset-lg-1 section-title">	
+
+						
+						<!-- CONTACT FORM -->	
+				 		<div class="col-md-8 col-lg-8 border">
+				 			<div class="form-holder mb-40">
+                                 <p>Add medicine</p>
+                                    <form name="commentForm00" class="row comment-form00" method="POST">
+                                            {% csrf_token %}
+                                            <textarea class="form-control message" name="medicine" placeholder="Medicine Names*" rows="2" ></textarea>
+                                            <div id="input" class="col-lg-8">
+                                                    <input type="checkbox" id="fnoon" name="fnoon" value="Forenoon"     > Forenoon&nbsp;&nbsp;
+                                                    <input type="checkbox" name="anoon" id="anoon"  placeholder="" value="Afternoon"  > Afternoon&nbsp; 
+                                                
+                                                </div>
+                        
+                                                <div id="input" class="col-lg-6">
+                                                    <input type="text" name="timing" value="" placeholder="Timing." class="form-control phone" id="ftk" >
+                                                </div>
+                        
+                                                <script>
+                                                
+                                                </script>
+                        
+                                                
+                        
+                                                <!-- <div id="input" class="col-lg-6">
+                                                    <input type="number" name="atoken" placeholder="Token No." class="form-control phone" id="atk">
+                                                </div> -->
+                                                
+                                            <textarea class="form-control message" name="review" placeholder="review*" rows="2"></textarea>
+                                    <button type="submit" name="med_add" class="btn btn-blue blue-hover">Upload</button>
+                                                
+                                        </form>
+				 			</div>	
+
+
+				 	</div>	<!-- End row -->			  
+ 
+
+				</div>	   <!-- End container -->		
+			</section>	<!-- END CONTACTS-1 -->
+
+
+
+		</div>	<!-- END PAGE CONTENT -->
+
+
+
+		<!-- EXTERNAL SCRIPTS
+		============================================= -->	
+		<script src="/static/user/js/jquery-3.3.1.min.js"></script>
+		<script src="/static/user/js/bootstrap.min.js"></script>	
+		<script src="/static/user/js/modernizr.custom.js"></script>
+		<script src="/static/user/js/jquery.easing.js"></script>
+		<script src="/static/user/js/jquery.appear.js"></script>
+		<script src="/static/user/js/jquery.stellar.min.js"></script>	
+		<script src="/static/user/js/menu.js"></script>
+		<script src="/static/user/js/sticky.js"></script>
+		<script src="/static/user/js/jquery.scrollto.js"></script>
+		<script src="/static/user/js/materialize.js"></script>	
+		<script src="/static/user/js/owl.carousel.min.js"></script>
+		<script src="/static/user/js/jquery.magnific-popup.min.js"></script>	
+		<script src="/static/user/js/imagesloaded.pkgd.min.js"></script>
+		<script src="/static/user/js/isotope.pkgd.min.js"></script>
+		<script src="/static/user/js/hero-form.js"></script>
+		<script src="/static/user/js/contact-form.js"></script>
+		<script src="/static/user/js/comment-form.js"></script>
+		<script src="/static/user/js/appointment-form.js"></script>
+		<script src="/static/user/js/jquery.datetimepicker.full.js"></script>	
+		<script src="/static/user/js/jquery.validate.min.js"></script>	
+		<script src="/static/user/js/jquery.ajaxchimp.min.js"></script>				
+		<script src="/static/user/js/wow.js"></script>	
+	
+		<!-- Custom Script -->		
+		<script src="/static/user/js/custom.js"></script>
+
+		<script> 
+			new WOW().init();
+		</script>
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+		<!-- [if lt IE 9]>
+			<script src="/static/user/js/html5shiv.js" type="text/javascript"></script>
+			<script src="/static/user/js/respond.min.js" type="text/javascript"></script>
+		<![endif] -->
+
+		
+
+		<!-- To use this code on your website, get a free API key from Google. Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKl26cgtKhccOB_655pB3lOa2f44bMdp8&amp;callback=initMap" async defer></script>
+
+		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->	
+		<!--
+		<script>
+			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', 'UA-XXXXX-Y', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<script async src='https://www.google-analytics.com/analytics.js'></script>
+		-->
+		<!-- End Google Analytics -->
+
+		<script src="/static/user/js/changer.js"></script>
+		<script defer src="/static/user/js/styleswitch.js"></script>	
+		
+{% endblock %}
+

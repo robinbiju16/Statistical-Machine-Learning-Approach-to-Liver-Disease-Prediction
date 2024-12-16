@@ -1,0 +1,275 @@
+{% extends 'hos_temp.html' %}
+{% block addpat %}
+
+<!-- FAVICON AND TOUCH ICONS  -->
+<link rel="shortcut icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/user/images/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/user/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/user/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" href="/static/user/images/apple-touch-icon.png">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"> 	
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"> 
+
+<!-- BOOTSTRAP CSS -->
+<link href="/static/user/css/bootstrap.min.css" rel="stylesheet">
+        
+<!-- FONT ICONS -->
+<link href="../../../../use.fontawesome.com/releases/v5.7.2//static/user/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">		
+<link href="/static/user/css/flaticon.css" rel="stylesheet">
+
+<!-- PLUGINS STYLESHEET -->
+<link href="/static/user/css/menu.css" rel="stylesheet">	
+<link id="effect" href="/static/user/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+<link href="/static/user/css/magnific-popup.css" rel="stylesheet">	
+<link href="/static/user/css/owl.carousel.min.css" rel="stylesheet">
+<link href="/static/user/css/owl.theme.default.min.css" rel="stylesheet">
+<link href="/static/user/css/animate.css" rel="stylesheet">
+<link href="/static/user/css/jquery.datetimepicker.min.css" rel="stylesheet">
+        
+<!-- TEMPLATE CSS -->
+<link href="/static/user/css/style.css" rel="stylesheet">
+
+<!-- RESPONSIVE CSS -->
+<link href="/static/user/css/responsive.css" rel="stylesheet"> 
+
+    <!-- BREADCRUMB
+    ============================================= -->
+    <div id="breadcrumb" class="division">
+        <div class="container">
+            <div class="row col-lg-8">						
+                <div class="col">
+                    <div class=" breadcrumb-holder">
+
+                        <!-- Breadcrumb Nav -->
+                        <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/hos_homeview">Home</a></li>
+                                <li class="breadcrumb-item " aria-current="page">Approve</li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Patient</li>
+                              </ol>
+                        </nav>
+
+                        <!-- Title -->
+                        <h4 class="h4-sm steelblue-color">Add Patient</h4>
+
+                    </div>
+                </div>
+            </div>  <!-- End row -->	
+        </div>	<!-- End container -->		
+    </div>	<!-- END BREADCRUMB -->	
+
+
+
+
+    <!-- APPOINTMENT PAGE
+    ============================================= -->
+    <div id="appointment-page" class="wide-60 appointment-page-section division">
+        <div class="container">
+             <div class="row">
+
+
+                 <!-- PATIENT DETAILS -->
+                 <div class="col-lg-8 border">
+                     <div class="txt-block pr-30">
+
+                         <!-- Title -->
+                        <h3 class="h3-md steelblue-color">New Patient Details</h3>
+
+                        <!-- APPOINTMENT FORM -->
+                        <div id="appointment-form-holder" class="text-center"><img id="output_image" style="width:150px;height:150px;"><br><br>
+                            <form name="appointmentform00" class="row appointment-form00" method="POST" enctype="multipart/form-data" onsubmit="return checkPassword(this);">
+
+                                {% csrf_token %}
+
+                                <!-- Preview Image-->
+                                <script type='text/javascript'>
+                                    function preview_image(event) 
+                                    {
+                                     var reader = new FileReader();
+                                     reader.onload = function()
+                                     {
+                                      var output = document.getElementById('output_image');
+                                      output.src = reader.result;
+                                     }
+                                     reader.readAsDataURL(event.target.files[0]);
+                                    }
+                                </script>
+                                <!-- End Preview Image-->
+
+                                 <!-- Contact Form Input -->
+                                <div id="input" class="col-lg-12">
+                                    <input type="file" name="img" accept="image/*" onchange="preview_image(event)"  required>
+                                </div>
+                                <br>
+                                <br>
+                                <div id="input-name" class="col-lg-12">
+                                        <input type="text" name="name" class="form-control name" placeholder="Enter Name*" style="text-transform: capitalize;" required> 
+                                </div>
+
+                                <div id="input-email" class="col-lg-12">
+                                        <input type="text" name="email" class="form-control email" placeholder="Enter Email Id*" required> 
+                                </div>
+
+                                <div id="input" class="col-lg-4">
+                                        <input type="text" name="age" class="form-control" placeholder="Age*" required> 
+                                </div>
+
+                                <div id="input" class="col-lg-6 form-control" style="padding:0px 3px 0px 0px;"><br>Gender* : &nbsp;&nbsp;
+                                    
+                                    <input type="radio" name="gender" placeholder="" value="Male" required>Male&nbsp;
+                                    <input type="radio" name="gender"  placeholder="" value="Female" required>Female &nbsp;  
+                                    <input type="radio" name="gender"  placeholder="" value="Unknown" required>Unknown  &nbsp;
+                                </div>
+
+
+                                <div id="input-date" class="col-lg-6">
+                                    <input type="date" name="dob" class="form-control date" title="Date Of Birth" placeholder="Date of Birth*" required> 
+                                </div>
+
+                                <div id="input-phone" class="col-lg-12">
+                                    <input type="number" name="phone" class="form-control phone" placeholder="Enter Phone Number*" required> 
+                                </div>
+
+                                <div id="input" class="col-lg-12">
+                                    <textarea class="form-control message" name="address" rows="6" placeholder="Permanent Address" required></textarea>
+                                </div>		
+                                
+                                <div id="input" class="col-lg-6">
+                                    <input type="text" name="votersid" class="form-control" placeholder="Voters Id *"> 
+                                </div>
+
+                                <div id="input" class="col-lg-6">
+                                    <input type="number" name="adharno" class="form-control" placeholder="Adhar Card no.*" required> 
+                                </div>
+
+                                <div id="input" class="col-lg-6">
+                                    <input type="text" name="licno" class="form-control" placeholder="LIC No.*"> 
+                                </div>
+                                <div id="input" class="col-lg-6">
+                                    <select id="inlineFormCustomSelect3" name="blood" class="custom-select patient" required>
+                                        <option value="">Blood Group*</option>
+                                        <option>A+</option>
+                                        <option>A-</option>
+                                        <option>B+</option>
+                                        <option>B-</option>
+                                        <option>O+</option>
+                                        <option>O-</option>
+                                        <option>AB+</option>
+                                        <option>AB-</option>
+                                    </select> 
+                                    
+                                </div><br>
+                                <div id="input" class="col-lg-12">
+                                    <input type="password" name="password" id="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one NUMBER* and one UPPERCASE* and LOWERCASE letter*, and at least 8 or more characters" placeholder="Password" maxlength="20" required="" size="25">
+                                        <div class="clear"></div>
+                                     </div>
+                                     <label style="color: red;" id="l1"></label>
+                                <label style="color: rgb(8, 131, 8);" id="l2"></label>
+                                     <div id="input" class="col-lg-12">
+                                        <input type="password" name="cnf_password" id="cnf_password" class="form-control" placeholder="Confirm Password" maxlength="20" required="" size="25" oninput="msg()" >
+                                        <div class="clear"></div>
+                                    </div>
+                                                
+                                <!-- Contact Form Button -->
+                                <div class="col-lg-12 form-btn">  
+                                    <button type="submit" class="btn btn-blue blue-hover submit">Register</button> 
+                                </div>
+                                
+                            </form> 
+
+                        </div>	<!-- END APPOINTMENT FORM -->
+
+                        <!-- Text -->
+                        <p class="p-sm grey-color mb-30">* Add mandatory details carefully. Fill all details. 
+                        </p>
+                        
+                         
+                     </div>
+                 </div>	<!-- END Add Patient -->
+        </div>
+        </div>
+        </div>
+    
+
+<!-- EXTERNAL SCRIPTS
+============================================= -->	
+<script src="/static/user/js/jquery-3.3.1.min.js"></script>
+<script src="/static/user/js/bootstrap.min.js"></script>	
+<script src="/static/user/js/modernizr.custom.js"></script>
+<script src="/static/user/js/jquery.easing.js"></script>
+<script src="/static/user/js/jquery.appear.js"></script>
+<script src="/static/user/js/jquery.stellar.min.js"></script>	
+<script src="/static/user/js/menu.js"></script>
+<script src="/static/user/js/sticky.js"></script>
+<script src="/static/user/js/jquery.scrollto.js"></script>
+<script src="/static/user/js/materialize.js"></script>	
+<script src="/static/user/js/owl.carousel.min.js"></script>
+<script src="/static/user/js/jquery.magnific-popup.min.js"></script>	
+<script src="/static/user/js/imagesloaded.pkgd.min.js"></script>
+<script src="/static/user/js/isotope.pkgd.min.js"></script>
+<script src="/static/user/js/hero-form.js"></script>
+<script src="/static/user/js/contact-form.js"></script>
+<script src="/static/user/js/comment-form.js"></script>
+<script src="/static/user/js/appointment-form.js"></script>
+<script src="/static/user/js/jquery.datetimepicker.full.js"></script>			
+<script src="/static/user/js/jquery.validate.min.js"></script>	
+<script src="/static/user/js/jquery.ajaxchimp.min.js"></script>
+<script src="/static/user/js/wow.js"></script>	
+
+<!-- Custom Script -->		
+<script src="/static/user/js/custom.js"></script>
+
+<script> 
+    new WOW().init();
+</script>
+
+<script src="/static/user/js/changer.js"></script>
+<script defer src="/static/user/js/styleswitch.js"></script>	
+
+<script>
+    function checkPassword(form) {
+       debugger;
+       pass1 = form.password.value;
+       pass2 = form.cnf_password.value;
+
+       if(pass1 == pass2){
+         
+          alert("Registration Successfull.\nPlease login with your Username & Password\n");
+       }
+     
+    }
+ </script>
+
+ <script>
+    function msg()
+    {
+       debugger;
+       var a = document.getElementById("password").value;
+       var b = document.getElementById("cnf_password").value;
+       if(a!=b)
+       {
+          document.getElementById("l2").innerHTML = "";
+
+          document.getElementById("l1").innerHTML = "Password doesn't Match.";
+          // alert("error");
+       }
+       else
+       {
+          document.getElementById("l1").innerHTML = "";
+
+          document.getElementById("l2").innerHTML = "Password Matches.";
+          // alert("error");
+       }
+    }
+ </script>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
+{% endblock %}

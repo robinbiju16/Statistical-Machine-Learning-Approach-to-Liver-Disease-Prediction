@@ -1,0 +1,360 @@
+{% extends 'hos_temp.html' %}
+{% block leave %}
+
+
+<!-- FAVICON AND TOUCH ICONS  -->
+<link rel="shortcut icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/static/user/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/user/images/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/user/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/user/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" href="/static/user/images/apple-touch-icon.png">
+
+<!-- GOOGLE FONTS -->
+<link href="/static/user/css/roboto.css" rel="stylesheet"> 	
+<link href="/static/user/css/lato.css" rel="stylesheet"> 
+
+<!-- BOOTSTRAP CSS -->
+<link href="/static/user/css/bootstrap.min.css" rel="stylesheet">
+        
+<!-- FONT ICONS -->
+<link href="../../../../use.fontawesome.com/releases/v5.7.2//static/user/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet" crossorigin="anonymous">		
+<link href="/static/user/css/flaticon.css" rel="stylesheet">
+
+<!-- PLUGINS STYLESHEET -->
+<link href="/static/user/css/menu.css" rel="stylesheet">	
+<link id="effect" href="/static/user/css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+<link href="/static/user/css/magnific-popup.css" rel="stylesheet">	
+<link href="/static/user/css/owl.carousel.min.css" rel="stylesheet">
+<link href="/static/user/css/owl.theme.default.min.css" rel="stylesheet">
+<link href="/static/user/css/animate.css" rel="stylesheet">
+<link href="/static/user/css/jquery.datetimepicker.min.css" rel="stylesheet">
+        
+<!-- TEMPLATE CSS -->
+<link href="/static/user/css/style.css" rel="stylesheet">
+
+<!-- RESPONSIVE CSS -->
+<link href="/static/user/css/responsive.css" rel="stylesheet"> 
+
+<!-- BREADCRUMB
+			============================================= -->
+			<div id="breadcrumb" class="division">
+                              <div class="container">
+                                    <div class="row col-lg-8">						
+                                          <div class="col">
+                                                <div class=" breadcrumb-holder">
+      
+                                                      <!-- Breadcrumb Nav -->
+                                                      <nav aria-label="breadcrumb">
+                                                              <ol class="breadcrumb">
+                                                                <li class="breadcrumb-item"><a href="/hos_homeview">Home</a></li>
+                                                                <li class="breadcrumb-item active" aria-current="page">Leave Requests</li>
+                                                              </ol>
+                                                      </nav>
+      
+                                                      <!-- Title -->
+                                                      <h4 class="h4-sm steelblue-color">Leave Requests</h4>
+      
+                                                </div>
+                                          </div>
+                                    </div>  <!-- End row -->	
+                              </div>	<!-- End container -->		
+                        </div>	<!-- END BREADCRUMB -->	
+      
+    
+        
+      
+<!-- TABS-2
+			============================================= -->
+			<section id="tabs-2" class="wide-100 tabs-section division">
+				<div class="container">	
+				 	<div class="row">
+
+
+				 		<!-- TABS NAVIGATION -->
+				 		<div class="col-lg-2">
+							<div id="tabs-nav" class="list-group text-center clearfix">
+							    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+
+							    	<!-- TAB-1 LINK -->
+								  	<li class="nav-item icon-xs">
+								    	<a class="nav-link active" id="tab11-list" data-toggle="pill" href="#tab-11" role="tab" aria-controls="tab-11" aria-selected="true">
+                                                            <i class="fas fa-angle-double-right blue-color"></i>Doctors
+                                                      </a></li>
+                                                      
+								  	
+
+								  	<!-- TAB-2 LINK -->
+									<li class="nav-item icon-xs">
+									    <a class="nav-link" id="tab12-list" data-toggle="pill" href="#tab-12" role="tab" aria-controls="tab-12" aria-selected="false">
+									       Nurses
+									    </a>
+									</li>
+
+									<!-- TAB-3 LINK -->
+									<li class="nav-item icon-xs">
+									    <a class="nav-link" id="tab13-list" data-toggle="pill" href="#tab-13" role="tab" aria-controls="tab-13" aria-selected="false">
+									      Other Staffs
+									    </a>
+									</li>
+
+								</ul>
+
+							</div>	
+						</div>	<!-- END TABS NAVIGATION -->
+
+                                   <!-- TABS CONTENT -->
+				 		<div class="col-lg-10 ">
+							<div class="tab-content" id="pills-tabContent">
+
+                                                <!-- DOCTOR TAB-->
+                                                      <div class="tab-pane fade show active" id="tab-11" role="tabpanel" aria-labelledby="tab11-list">
+                                                             <div class="row">
+                              
+                              
+                                                                   
+                                                                   <div class="col-lg-12">
+                                                                         <div class="txt-block pr-30">
+                                                                               
+                                                                                                                                                                                        
+                                                                              
+                                                                              <h5 class="h5-md steelblue-color">Doctors - Leave Requests</h5>
+                              
+                                                                              <div class="pricing-table mb-40">								
+                                                                                    <table class="table table-hover">
+                                                                                          <thead>
+                                                                                                      <tr>
+                                                                                                                  <th scope="col"><b>Dr_id</b></th>
+                                                                                                                  <th scope="col"><b>Name</b></th>
+                                                                                                                  <th scope="col"><b>Reason</b></th>
+                                                                                                                  <th scope="col"><b>Days</b></th>
+                                                                                                                  <th scope="col" colspan="2"><center><b>Approve / Decline</b></center></th>
+                                                                                                          </tr>
+                                                                                                      </thead>
+                                                                                                      <tbody>
+                                                                                                             {% for e in data %}
+
+                                                                                                            
+
+                                                                                                                  <tr><td>{{e.2}}</td><td>{{e.1}}</td><td>{{e.6}}</td><td>{{e.4}}-{{e.5}}</td>
+                                                                                                                        {% if e.9 != "Approved" and e.9 != "Rejected"  %}
+                                                                                                                              <td> <a name="status" a href="/statusview?dr_id={{e.2}}&status=Approved&lv_id={{e.0}}" id="st" value="Approved" class="btn btn-blue green-hover">Approved</a></td>
+                                                                                                                              <td><a href="/statusview?dr_id={{e.2}}&status=Rejected&lv_id={{e.0}}" id="st" name="status" value="Rejected" class="btn btn-blue red-hover">Rejected</a></td></tr>
+                                                                                                                        {% endif %}{% if e.9 == "Approved" and e.9 != "Rejected" %}
+                                                                                                                        <td colspan="2"><center><img src="/static/user/images/tik.gif" width="70px" height="50px"></center></td>
+                                                                                                                        
+                                                                                                                        {% endif %}{% if e.9 != "Approved" and e.9 == "Rejected"%}
+                                                                                                                       <td colspan="2"> <center><img src="/static/user/images/cancel.png" width="50px" height="50px"></center></td>
+                                                                                                                        
+                                                                                                                        {% endif %}
+                                                                                                                              </tr>
+                                                                                                                  {% endfor %}
+                                                                                                                  <script>
+                                                                                                                              
+                                                                                                                              $("#st").click(function(){
+                                                                                                                              // $("#bg").attr('src',"img/picture1.jpg");
+                                                                                                                              // return false;
+                                                                                                                              alert("Inside jquery");
+                                                                                                                              });
+                                                                                                                              
+                                                                                                                              </script>
+                                                                                              
+                                                                                          </tbody>
+                                                                                    </table>
+                                                                              </div>
+                                                                                                                                                    
+                           
+                                                                         </div>
+                                                                   </div>	
+																		
+							                  </div>	<!-- END TABS CONTENT -->
+                                                      </div>
+
+
+                                                      <!-- <script>
+                                                            function icon_change()
+                                                            {
+                                                                  alert("hello");
+                                                                  var a = document.getElementById("st").text;
+                                                                  alert(a);
+
+                                                                  if (a == "Approved")
+                                                                  {
+                                                                        document.getElementById("st").display='none';
+                                                                        document.getElementById()
+                                                                  }
+
+                                                            }
+                                                      </script> -->
+
+
+                                           <!-- NURSE TAB-->
+                                           <div class="tab-pane fade show" id="tab-12" role="tabpanel" aria-labelledby="tab12-list">
+                                                <div class="row">
+                  
+                       
+                                                            <div class="col-lg-12">
+                                                                  <div class="txt-block pr-30">
+                                                                        
+                                                                                                                                                                                 
+                                                                       <h5 class="h5-md steelblue-color">Nurses - Leave Requests</h5>
+                       
+                                                                       <div class="pricing-table mb-40">								
+                                                                             <table class="table table-hover">
+                                                                                   <thead>
+                                                                                          <tr>
+                                                                                                      <th scope="col"><b>Nurse_id</b></th>
+                                                                                                      <th scope="col"><b>Name</b></th>
+                                                                                                      <th scope="col"><b>Reason</b></th>
+                                                                                                      <th scope="col"><b>Days</b></th>
+                                                                                                      <th scope="col" colspan="2"><center><b>Approve / Decline</b></center></th>
+                                                                                              </tr>
+                                                                                          </thead>
+                                                                                          <tbody>
+                                                                                                 {% for e in data1 %}
+
+                                                                                                 <tr><td>{{e.2}}</td><td>{{e.1}}</td><td>{{e.6}}</td><td>{{e.4}}-{{e.5}}</td>
+                                                                                                      {% if e.10 != "Approved" and e.10 != "Rejected"  %}
+                                                                                                            <td> <a name="status" a href="/nu_statusview?nu_id={{e.2}}&status=Approved&lv_id={{e.0}}" id="st" value="Approved" class="btn btn-blue green-hover">Approved</a></td>
+                                                                                                            <td><a href="/nu_statusview?nu_id={{e.2}}&status=Rejected&lv_id={{e.0}}" id="st" name="status" value="Rejected" class="btn btn-blue red-hover">Rejected</a></td></tr>
+                                                                                                      {% endif %}{% if e.10 == "Approved" and e.10 != "Rejected" %}
+                                                                                                      <td colspan="2"><center><img src="/static/user/images/tik.gif" width="70px" height="50px"></center></td>
+                                                                                                      
+                                                                                                      {% endif %}{% if e.10 != "Approved" and e.10 == "Rejected" %}
+                                                                                                     <td colspan="2"> <center><img src="/static/user/images/cancel.png" width="50px" height="50px"></center></td>
+                                                                                                      
+                                                                                                      {% endif %}
+                                                                                                            </tr>
+
+                                                                                                      <!-- <tr><td>{{e.1}}</td><td>{{e.2}}</td><td>{{e.6}}</td><td>{{e.4}}-{{e.5}}</td><td><a href="/nu_statusview?nu_id={{e.2}}&status=Approved" name="status" value="Approved"class="btn btn-blue green-hover">Approve</a></td>
+                                                                                                      <td><a href="/nu_statusview?nu_id={{e.2}}&status=Rejected" name="status" value="Rejected" class="btn btn-blue red-hover" >Rejected</a></td></tr> -->
+                                                                                                 {% endfor %}
+                                                                                   </tbody>
+                                                                             </table>
+                                                                       </div>
+                                                                                                                                             
+                    
+                                                                  </div>
+                                                            </div>	
+                                                                                                     
+                                                     </div>	
+                                               </div>
+
+
+                                                <!-- STAFF TAB -->
+                                                 <div class="tab-pane fade show" id="tab-13" role="tabpanel" aria-labelledby="tab13-list">
+                                                      <div class="row">
+                       
+                       
+                                                            <!-- PRICING-2 HOLDER -->
+                                                            <div class="col-lg-12">
+                                                                  <div class="txt-block pr-30">
+                                                                        
+                                                                                                                                                                                 
+                                                                        <!-- Plan Title  -->
+                                                                       <h5 class="h5-md steelblue-color">Other Staffs - Leave Requests</h5>
+                       
+                                                                       <div class="pricing-table mb-40">								
+                                                                             <table class="table table-hover">
+                                                                                   <thead>
+                                                                                       <tr>
+                                                                                               <th scope="col">St_id</th>
+                                                                                               <th scope="col">Name</th>
+                                                                                               <th scope="col">Reason</th>
+                                                                                               <th scope="col">Days</th>
+                                                                                               <th scope="col" colspan="2"><center>Approve / Decline</center></th>
+                                                                                       </tr>
+                                                                                   </thead>
+                                                                                   <tbody>
+                                                                                          {% for e in data2 %}
+                                                                                                      <!-- <tr><td>{{e.1}}</td><td>{{e.2}}</td><td>{{e.6}}</td><td>{{e.3}} - {{e.4}}</td><td><a href="/nu_statusview?nu_id={{e.1}}&status=Approved" name="status" value="Approved"class="btn btn-blue green-hover">Approve</a></td>
+                                                                                                      <td><a href="/nu_statusview?nu_id={{e.1}}&status=Rejected" name="status" value="Rejected" class="btn btn-blue red-hover" >Rejected</a></td></tr> -->
+                                                                                                      <tr><td>{{e.2}}</td><td>{{e.1}}</td><td>{{e.6}}</td><td>{{e.4}}-{{e.5}}</td>
+                                                                                                            {% if e.10 != "Approved" and e.10 != "Rejected"  %}
+                                                                                                                  <td> <a name="status" a href="/st_statusview?nu_id={{e.2}}&status=Approved&lv_id={{e.0}}" id="st" value="Approved" class="btn btn-blue green-hover">Approved</a></td>
+                                                                                                                  <td><a href="/st_statusview?nu_id={{e.2}}&status=Rejected&lv_id={{e.0}}" id="st" name="status" value="Rejected" class="btn btn-blue red-hover">Rejected</a></td></tr>
+                                                                                                            {% endif %}{% if e.10 == "Approved" and e.10 != "Rejected" %}
+                                                                                                            <td colspan="2"><center><img src="/static/user/images/tik.gif" width="70px" height="50px"></center></td>
+                                                                                                            
+                                                                                                            {% endif %}{% if e.10 != "Approved" and e.10 == "Rejected" %}
+                                                                                                           <td colspan="2"> <center><img src="/static/user/images/cancel.png" width="50px" height="50px"></center></td>
+                                                                                                            
+                                                                                                            {% endif %}
+                                                                                                                  </tr>
+                                                                                          {% endfor %}
+                                                                                       
+
+                                                                                   </tbody>
+                                                                             </table>
+                                                                       </div>
+                                                                                                                                             
+                    
+                                                                  </div>
+                                                            </div>	<!-- END PRICING-2 HOLDER -->
+                                                                                                     
+                                                     </div>	<!-- END TABS CONTENT -->
+                                               </div>
+                                          
+                                          </div>
+                                     </div>
+                               </div>
+                                    </div>   
+                                        <!-- End row -->	
+                               
+                            <!-- End container -->	
+                        
+			</section>	<!-- END TABS-2 -->
+
+<!-- EXTERNAL SCRIPTS
+		============================================= -->	
+		<script src="../static/user/js/jquery-3.3.1.min.js"></script>
+		<script src="../static/user/js/bootstrap.min.js"></script>	
+		<script src="/static/user/js/modernizr.custom.js"></script>
+		<script src="/static/user/js/jquery.easing.js"></script>
+		<script src="/static/user/js/jquery.appear.js"></script>
+		<script src="/static/user/js/jquery.stellar.min.js"></script>	
+		<script src="/static/user/js/menu.js"></script>
+		<script src="/static/user/js/sticky.js"></script>
+		<script src="/static/user/js/jquery.scrollto.js"></script>
+		<script src="/static/user/js/materialize.js"></script>	
+		<script src="/static/user/js/owl.carousel.min.js"></script>
+		<script src="/static/user/js/jquery.magnific-popup.min.js"></script>	
+		<script src="/static/user/js/imagesloaded.pkgd.min.js"></script>
+		<script src="/static/user/js/isotope.pkgd.min.js"></script>
+		<script src="/static/user/js/hero-form.js"></script>
+		<script src="/static/user/js/contact-form.js"></script>
+		<script src="/static/user/js/comment-form.js"></script>
+		<script src="/static/user/js/appointment-form.js"></script>
+		<script src="/static/user/js/jquery.datetimepicker.full.js"></script>		
+		<script src="/static/user/js/jquery.validate.min.js"></script>	
+		<script src="/static/user/js/jquery.ajaxchimp.min.js"></script>
+		<script src="/static/user/js/wow.js"></script>	
+	
+		<!-- Custom Script -->		
+		<script src="/static/user/js/custom.js"></script>
+
+		<script> 
+			new WOW().init();
+		</script>
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+		<!-- [if lt IE 9]>
+			<script src="/static/user/js/html5shiv.js" type="text/javascript"></script>
+			<script src="/static/user/js/respond.min.js" type="text/javascript"></script>
+		<![endif] -->
+
+		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->	
+		<!--
+		<script>
+			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', 'UA-XXXXX-Y', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<script async src='https://www.google-analytics.com/analytics.js'></script>
+		-->
+		<!-- End Google Analytics -->
+
+		<script src="/static/user/js/changer.js"></script>
+        <script defer src="/static/user/js/styleswitch.js"></script>
+        
+{% endblock %}
